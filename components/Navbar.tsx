@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Logo from "./Logo"; // Assuming you have a Logo component
+import Logo from "./Logo";
 
 interface NavItem {
   label: string;
