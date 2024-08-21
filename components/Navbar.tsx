@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Logo from "./Logo";
 import { Snowflake } from "lucide-react";
 
 interface NavItem {
@@ -74,9 +73,8 @@ const Navbar: React.FC = () => {
           </ul>
         </div>
         <Link href="/" className="btn btn-ghost normal-case text-xl">
-          <Logo width={32} height={32} className="mr-2" />
-          <span className="text-primary font-bold">Hiretop</span>
           <Snowflake className="ml-2 text-primary h-5 w-5" />
+          <span className="text-primary font-bold">Hiretop</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
