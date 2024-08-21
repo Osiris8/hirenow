@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Logo from "./Logo";
+import { Snowflake } from "lucide-react";
 
 interface NavItem {
   label: string;
@@ -9,28 +10,24 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Home", href: "/item1" },
+  { label: "Home", href: "/" },
   {
     label: "Features",
-    href: "/parent",
+    href: "/features",
     children: [
-      { label: "Submenu 1", href: "/submenu1" },
-      { label: "Submenu 2", href: "/submenu2" },
+      { label: "For Companies", href: "/features/companies" },
+      { label: "For Talent", href: "/features/talent" },
     ],
   },
-  { label: "Price", href: "/item3" },
+  { label: "Pricing", href: "/pricing" },
 ];
 
 const Navbar: React.FC = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 shadow-md">
       <div className="navbar-start">
         <div className="dropdown">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost bg-base-content lg:hidden"
-          >
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -48,18 +45,24 @@ const Navbar: React.FC = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52"
           >
             {navItems.map((item, index) => (
               <li key={index}>
-                <Link href={item.href} className="text-base-content">
+                <Link
+                  href={item.href}
+                  className="text-base-content hover:text-primary"
+                >
                   {item.label}
                 </Link>
                 {item.children && (
                   <ul className="p-2">
                     {item.children.map((subItem, subIndex) => (
                       <li key={subIndex}>
-                        <Link href={subItem.href} className="text-base-content">
+                        <Link
+                          href={subItem.href}
+                          className="text-base-content hover:text-primary"
+                        >
                           {subItem.label}
                         </Link>
                       </li>
@@ -72,7 +75,8 @@ const Navbar: React.FC = () => {
         </div>
         <Link href="/" className="btn btn-ghost normal-case text-xl">
           <Logo width={32} height={32} className="mr-2" />
-          <span className="text-base-content font-bold">SuiteForms</span>
+          <span className="text-primary font-bold">Hiretop</span>
+          <Snowflake className="ml-2 text-primary h-5 w-5" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -81,11 +85,16 @@ const Navbar: React.FC = () => {
             <li key={index}>
               {item.children ? (
                 <details>
-                  <summary className="text-base-content">{item.label}</summary>
-                  <ul className="p-2 bg-base-100">
+                  <summary className="text-base-content hover:text-primary">
+                    {item.label}
+                  </summary>
+                  <ul className="p-2 bg-base-200 rounded-box">
                     {item.children.map((subItem, subIndex) => (
                       <li key={subIndex}>
-                        <Link href={subItem.href} className="text-base-content">
+                        <Link
+                          href={subItem.href}
+                          className="text-base-content hover:text-primary"
+                        >
                           {subItem.label}
                         </Link>
                       </li>
@@ -93,7 +102,10 @@ const Navbar: React.FC = () => {
                   </ul>
                 </details>
               ) : (
-                <Link href={item.href} className="text-base-content">
+                <Link
+                  href={item.href}
+                  className="text-base-content hover:text-primary"
+                >
                   {item.label}
                 </Link>
               )}
