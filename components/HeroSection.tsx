@@ -72,33 +72,6 @@ const HeroSection: React.FC = () => {
               </button>
             </div>
           </div>
-          <div className="mt-16 text-center">
-            <h2 className="text-2xl font-bold mb-4">
-              Join the Hiretop Community
-            </h2>
-            <p className="mb-4">
-              Stay updated with the latest opportunities and hiring trends
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="input input-bordered flex-grow max-w-xs"
-              />
-              <select className="select select-bordered max-w-xs">
-                <option disabled selected>
-                  I am a...
-                </option>
-                <option>Job Seeker</option>
-                <option>Employer</option>
-                <option>Recruiter</option>
-              </select>
-              <button className="btn btn-accent">
-                Subscribe
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
